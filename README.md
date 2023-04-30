@@ -1,7 +1,6 @@
 # Kare Defter
-Yazılım Yapımı Vize Projesi
+9x9'luk bir alan içerisinde "L" şeklinde hareket ederek puan kazanılan terminal oyunu.
 
-
-## LICENSE
+## License
 For anyone who keeps the door open
 - [The GNU General Public License](./LICENSE)
