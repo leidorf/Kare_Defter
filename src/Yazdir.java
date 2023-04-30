@@ -1,8 +1,10 @@
 public class Yazdir {
     public void yazdir(int[][] Tahta) {
-        System.out.println("Puanınız:  " + Oyun_Tahtasi.puan + "\nOynanabilecek hamle sayısı:\t" + Oyun_Tahtasi.oynanabilirYerler);
-        System.out.print("  Y| ");
+        //TAHTA BILGILENDIRMELERI
+        System.out.println("Puanınız:  " + Oyun_Tahtasi.puan + "\nOynanabilecek hamle sayısı:\t" + Oyun_Tahtasi.oynanabilirHamleSayisi);
+
         //KENARDAKI SAYILARI YAZDIRMA
+        System.out.print("  Y| ");
         for (int q = 0; q < 2; q++) {
             if (q == 1) {
                 System.out.println();
@@ -23,11 +25,11 @@ public class Yazdir {
                     System.out.print("-  ");
                 }
                 //L HAREKETE UYGUN OYNANABILIR KARELER
-                if (Tahta[i][j] == -1) {
+                else if (Tahta[i][j] == -1) {
                     System.out.print("#  ");
                 }
                 //DAHA ONCEDEN OYNANMIS, SIMDI OYNANAMAZ KARELER
-                if (Tahta[i][j] >= 1 ){
+                else {
                     System.out.print(Tahta[i][j]+"  ");
                 }
 

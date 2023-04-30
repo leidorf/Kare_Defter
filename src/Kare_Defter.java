@@ -6,7 +6,7 @@ public class Kare_Defter {
     //CALISTIRMA
     public static void main(String[] args) {
         Oyun_Tahtasi oyun_tahtasi = new Oyun_Tahtasi();
-        oyun_tahtasi.tahtayiOlustur();
+        oyun_tahtasi.TahtayiOlustur();
         Hareket();
     }
 
@@ -19,6 +19,7 @@ public class Kare_Defter {
         //ILK HAREKET
         System.out.println("\nLütfen hareket ediceğiniz kareyi giriniz:");
         ilk = input.nextInt(); ikinci = input.nextInt();
+
         oyun_tahtasi.OyunTahtasiHareket(ilk-1,ikinci-1);
         oyun_tahtasi.oyunTahtasi[ilk-1][ikinci-1] = sayac;
         yazdir.yazdir(oyun_tahtasi.oyunTahtasi);
@@ -31,22 +32,19 @@ public class Kare_Defter {
 
             //L SEKLINDE HAREKET KISITLAMASI
             if (oyun_tahtasi.oyunTahtasi[ilk-1][ikinci-1]!=-1){
-                System.out.println("Lütfen oynanabilir kareleri seçiniz.");
+                System.out.println("Lütfen daha önce oynamadığınız, oynanabilir kareleri seçiniz.");
             }
             else{
-                //AYNI YERE HAREKETI ENGELLEME
-                if(oyun_tahtasi.oyunTahtasi[ilk-1][ikinci-1]>=1){
-                    System.out.println("Daha önce oynadığınız kareye hareket edemezsiniz.");
-                }
                 //ISTENEN HAREKETLER
-                else {
-                    oyun_tahtasi.OyunTahtasiHareket(ilk-1,ikinci-1);
-                    oyun_tahtasi.oyunTahtasi[ilk-1][ikinci-1] = sayac;
-                    yazdir.yazdir(oyun_tahtasi.oyunTahtasi);
-                    sayac++;
-                }
+                oyun_tahtasi.OyunTahtasiHareket(ilk-1,ikinci-1);
+                oyun_tahtasi.oyunTahtasi[ilk-1][ikinci-1] = sayac;
+                yazdir.yazdir(oyun_tahtasi.oyunTahtasi);
+                sayac++;
             }
-        }while (Oyun_Tahtasi.oynanabilirYerler>0);
+        }while (Oyun_Tahtasi.oynanabilirHamleSayisi>0);
+
+        //OYUN SONU BILGILENDIRME
+        System.out.println("Oyun sona erdi. Puanınız: " + Oyun_Tahtasi.puan);
     }
 
 }
