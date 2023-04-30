@@ -1,7 +1,7 @@
-# Kare_Defter
+# Kare Defter
 Yazılım Yapımı Vize Projesi
 
 
-##LICENSE
+## LICENSE
 For anyone who keeps the door open
 - [The GNU General Public License](./LICENSE)
