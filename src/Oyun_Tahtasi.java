@@ -3,6 +3,7 @@ public class Oyun_Tahtasi {
     static int puan=0;
     static int oynanabilirYerler=0;
 
+    //OYUN TAHTASINI OLUSTURUR
     public void tahtayiOlustur(){
         for(int i =0; i<9;i++){
             for(int j=0;j<9;j++){
@@ -10,6 +11,7 @@ public class Oyun_Tahtasi {
             }
         }
     }
+    //ANA OYUN MEKANIGI
     public void OyunTahtasiHareket(int x, int y){
         oynanabilirYerler=0;
         TahtayiSifirla();
@@ -22,7 +24,7 @@ public class Oyun_Tahtasi {
     private void TahtayiSifirla(){
         for(int i=0;i<9;i++){
             for(int j=0;j<9;j++){
-                if(oyunTahtasi[i][j]!=1){
+                if(oyunTahtasi[i][j]==-1){
                     oyunTahtasi[i][j]=0;
                 }
             }
@@ -32,37 +34,23 @@ public class Oyun_Tahtasi {
     private void OynanabilirHareketSayisiAtama(){
         for(int i=0;i<9;i++){
             for(int j=0;j<9;j++){
-                if(oyunTahtasi[i][j]==3){
+                if(oyunTahtasi[i][j]==-1){
                     oynanabilirYerler++;
                 }
             }
         }
     }
+
     //L SEKLINDE HAREKETI SAGLAR
-    public void HareketYerleri(int x, int y) {
-        if (x > 2 && y > 1) {
-            oyunTahtasi[x - 2][y - 2] = 3;
-        }
-        if (x > 1 && y > 2) {
-            oyunTahtasi[x - 2][y - 2] = 3;
-        }
-        if (x < 7 && y > 2) {
-            oyunTahtasi[x + 1][y - 2] = 3;
-        }
-        if (x < 6 && y > 1) {
-            oyunTahtasi[x + 2][y - 2] = 3;
-        }
-        if (x < 6 && y < 7) {
-            oyunTahtasi[x + 2][y + 1] = 3;
-        }
-        if (x < 7 && y < 6) {
-            oyunTahtasi[x + 1][y + 2] = 3;
-        }
-        if (x > 1 && y < 6) {
-            oyunTahtasi[x - 2][y + 1] = 3;
-        }
-        if (x > 2 && y < 7) {
-            oyunTahtasi[x - 2][y + 2] = 3;
+    private void HareketYerleri(int x, int y) {
+        int[] dx = {2, 1, -1, -2, -2, -1, 1, 2};
+        int[] dy = {1, 2, 2, 1, -1, -2, -2, -1};
+        for (int i = 0; i < dx.length; i++) {
+            int newX = x + dx[i];
+            int newY = y + dy[i];
+            if (newX >= 0 && newX < oyunTahtasi.length && newY >= 0 && newY < oyunTahtasi[0].length && oyunTahtasi[newX][newY]<=0) {
+                oyunTahtasi[newX][newY] = -1;
+            }
         }
     }
 }
